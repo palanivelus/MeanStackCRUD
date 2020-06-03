@@ -1,0 +1,56 @@
+<div class="button-row">
+  <a mat-raised-button color="primary" (click)="relationshipDetails()">
+    <mat-icon>show</mat-icon>
+  </a>
+</div>
+<form [formGroup]="relationshipForm" (ngSubmit)="onFormSubmit(relationshipForm.value)">
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Parent Name" formControlName="parentName" [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!relationshipForm.get('parentName').valid && relationshipForm.get('parentName').touched">Please enter
+        Parent Name</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Select Gender</mat-label>
+    <mat-select formControlName="parentGender">
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="male">FeMale</mat-option>
+      <mat-option value="other">Other</mat-option>
+    </mat-select>
+    <mat-error>
+      <span *ngIf="!relationshipForm.get('parentGender').valid && relationshipForm.get('parentGender').touched">Parent
+        Gender</span>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Child Name" formControlName="childName" [errorStateMatcher]="matcher">
+    <mat-error>
+      <span *ngIf="!relationshipForm.get('childName').valid && relationshipForm.get('childName').touched">Please enter
+        Child Name</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Child Gender</mat-label>
+    <mat-select formControlName="childGender">
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="male">FeMale</mat-option>
+      <mat-option value="other">Other</mat-option>
+    </mat-select>
+    <mat-error>
+      <span *ngIf="!relationshipForm.get('childGender').valid && relationshipForm.get('childGender').touched">Parent
+        Gender</span>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="button-row">
+    <button type="submit" [disabled]="!relationshipForm.valid" mat-raised-button color="primary">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+</form>
