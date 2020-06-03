@@ -6,7 +6,7 @@
 <form [formGroup]="relationshipForm" (ngSubmit)="onFormSubmit(relationshipForm.value)">
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="parent Name" formControlName="parentName" [errorStateMatcher]="matcher">
+    <input matInput placeholder="Parent Name" formControlName="parentName" [errorStateMatcher]="matcher">
     <mat-error>
       <span *ngIf="!relationshipForm.get('parentName').valid && relationshipForm.get('parentName').touched">Please enter
         Parent Name</span>
@@ -17,7 +17,7 @@
     <mat-label>Select Gender</mat-label>
     <mat-select formControlName="parentGender">
       <mat-option value="male">Male</mat-option>
-      <mat-option value="male">FeMale</mat-option>
+      <mat-option value="female">FeMale</mat-option>
       <mat-option value="other">Other</mat-option>
     </mat-select>
     <mat-error>
@@ -37,7 +37,7 @@
     <mat-label>Child Gender</mat-label>
     <mat-select formControlName="childGender">
       <mat-option value="male">Male</mat-option>
-      <mat-option value="male">FeMale</mat-option>
+      <mat-option value="female">FeMale</mat-option>
       <mat-option value="other">Other</mat-option>
     </mat-select>
     <mat-error>
